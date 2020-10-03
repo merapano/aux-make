@@ -1,8 +1,18 @@
 #!/usr/bin/perl
 
-$mybibdata = "/home/satoshi/anthrop/biblio/phil,/home/satoshi/anthrop/biblio/anthrop,/home/satoshi/anthrop/biblio/neighbor,/home/satoshi/anthrop/biblio/ntt,/home/satoshi/anthrop/biblio/satoshi,/home/satoshi/anthrop/biblio/sci,/home/satoshi/anthrop/biblio/asia";
+use Getopt::Long 'GetOptions';
+# use Getopt::Long;
 
-open(OUTF, "> bib.aux" ) || die "Cannot open bib.aux\n";
+my $mybibdata = "/home/satoshi/anthrop/biblio/phil,/home/satoshi/anthrop/biblio/anthrop,/home/satoshi/anthrop/biblio/neighbor,/home/satoshi/anthrop/biblio/ntt,/home/satoshi/anthrop/biblio/satoshi,/home/satoshi/anthrop/biblio/sci,/home/satoshi/anthrop/biblio/asia";
+
+my $auxname = "bib.aux";
+
+GetOptions(
+'bibdata=s'  => \$mybibdata,
+'output=s' => \$auxname
+);
+
+open(OUTF, "> $auxname" ) || die "Cannot open $auxname\n";
 print OUTF "\\bibstyle{chicago}\n";
 while(@ARGV){
     $fname=shift;
