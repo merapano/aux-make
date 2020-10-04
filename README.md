@@ -74,8 +74,3 @@ aux ファイルは `-o=foo.aux` ないし
      \bibstyle{chicago}
      \bibdata{/home/satoshi/anthrop/biblio/anthrop.bib,.../phil.bib}
 
----
-title: aux-make
-author: satoshi
-date: 2020-09-21
----
