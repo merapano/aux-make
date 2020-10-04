@@ -5,21 +5,26 @@
 簡易形式の`aux` ファイルをつくるための
 プログラムである。
 
-    aux-make -o foo.aux foo.md
-    aux-make -o foo.aux foo1.md foo2.md...
+    aux-make -o=foo.aux foo.md
+    aux-make --output foo.aux foo1.md foo2.md...
 
 できあがった `aux` ファイルは
 [bibexport](https://www.ctan.org/pkg/bibexport)
-[^bibexport] のために使うことのみ [^bibtool]  
-を考えられている。
+のために使うことのみを考えられている。
 他の用途、たとえば `bibtex` で使うといった
 用途には使えない。
 `bibexport` からの使用法は次のとおりである。
 
     bibexport -o foo.bib foo.aux
 
-[^bibexport]: Ubuntu では `texlive-bibtex-extra` パッケージに含まれている。
-[^bibtool]: `bibtool` でも可能だと思うのだが、`bibtool -x bib.aux -o bib.bib` では、なぜかエントリーが二重になる。
+なお、bibexport は Ubuntu では
+`texlive-bibtex-extra` パッケージに含まれている。
+また、この `aux` ファイルならば
+`bibtool` でも
+同じことが可能な筈なのだが、
+なぜか
+`bibtool -x bib.aux -o bib.bib` では、
+エントリーが二重になった bib ファイルができた。
 
 # オプション
 
@@ -28,6 +33,7 @@ aux ファイルは `-o=foo.aux` ないし
 デフォルトは `bib.aux` である。
 
 `bibdata` は `-d="~/foo/bar.bib,~/foo/baz.bib"`
+あるは `--datafiel "~/foo/bar.bib,~/foo/baz.bib"`
 という形で指定する。
 デフォルトはプログラム作成者のものであるので、
 かならず指定すること。
@@ -36,7 +42,6 @@ aux ファイルは `-o=foo.aux` ないし
 出力には関係しない。
 どんなスタイルファイルが指定してあっても、
 `aux` では chicago が指定されたこととする。
-[^chicago]: 繰り返すが、なにを指定しても差はでない。
 
 
 # 想定
