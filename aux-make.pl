@@ -28,6 +28,10 @@ while(@ARGV){
     close(IN);
 }
 print OUTF "\\bibdata{$mybibdata}\n";
-close(OUTF)
+close(OUTF);
     
 
+sub help {
+    print "--bibdata bibfilenames --output auxname\n";
+    print "-b=bibfilenames -o=auxname\n"
+}
